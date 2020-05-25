@@ -12,6 +12,9 @@ $(document).ready(function () { // Якщо документ загрузивс�
         $("#getPrice").hide(100);
         document.getElementById("field").disabled = true;
         $("#new").show(100);
+        var field = document.getElementById('field');
+
+        field.removeEventListener('click', listener, false);
     });
 
     $("#new").click(function () {
@@ -31,9 +34,7 @@ $(document).ready(function () { // Якщо документ загрузивс�
         var results2 = document.getElementById('results3');
         results2.innerHTML = "";
 
-        var field = document.getElementById('field');
-
-        field.removeEventListener('click', listener, false);
+        
     });
 
     $("#setValue").click(function () {
