@@ -1,20 +1,32 @@
 $(document).ready(function () { // Якщо документ загрузився
 
+    var klit = 1;
     var k = 0;
     var listener;
     $("#getPrice").click(function () {
         var collss = $('#var_x1').val();
-        var rowwss = $('#var_y1').val();
         var results = document.getElementById('results');
-        var m = collss * rowwss * k * 0.25;
+        var m = collss * k;
 
         results.innerHTML = "<b><p> Вартість мозаїки: " + m + " грн </p></b>";
         $("#getPrice").hide(100);
-        document.getElementById("field").disabled = true;
-        $("#new").show(100);
-        var field = document.getElementById('field');
+        if (klit == 1) {
+            var field = document.getElementById('field');
 
-        field.removeEventListener('click', listener, false);
+            field.removeEventListener('click', listener, false);
+        }
+        if (klit == 2) {
+            var field = document.getElementById('field2');
+
+            field.removeEventListener('click', listener, false);
+        }
+        if (klit == 3) {
+            var field = document.getElementById('field3');
+
+            field.removeEventListener('click', listener, false);
+        }
+
+        $("#new").show(100);
     });
 
     $("#new").click(function () {
@@ -22,7 +34,11 @@ $(document).ready(function () { // Якщо документ загрузивс�
         var results = document.getElementById('results');
         results.innerHTML = "";
         document.getElementById("field").disabled = false;
+        document.getElementById("field2").disabled = false;
+        document.getElementById("field3").disabled = false;
         $("#field").hide(100);
+        $("#field2").hide(100);
+        $("#field3").hide(100);
         $("#new").hide(100);
         $('#hint').show(100);
         $('#setValue').show(100);
@@ -30,14 +46,27 @@ $(document).ready(function () { // Якщо документ загрузивс�
         document.getElementById("var_b1").disabled = false;
         document.getElementById("var_x1").disabled = false;
         document.getElementById("var_y1").disabled = false;
+        document.getElementById("PlSize").disabled = false;
 
         var results2 = document.getElementById('results3');
         results2.innerHTML = "";
 
-        
+
+
     });
 
     $("#setValue").click(function () {
+
+        if ($('#PlSize').val() == 1) {
+            klit = 1;
+        }
+        if ($('#PlSize').val() == 2) {
+            klit = 2;
+        }
+        if ($('#PlSize').val() == 3) {
+            klit = 3;
+        }
+        console.log(klit);
 
         var collss = 5;
         if ($('#var_a1').val() > 10) {
@@ -46,13 +75,6 @@ $(document).ready(function () { // Якщо документ загрузивс�
             collss = $('#var_a1').val();
         }
 
-        
-        if ($('#var_x1').val() > 120 || ($('#var_x1').val() <30)) {
-            document.getElementById('var_x1').value = "50";
-        } 
-        if ($('#var_y1').val() > 120 || ($('#var_y1').val() <30)) {
-            document.getElementById('var_y1').value = "50";
-        } 
 
 
         var rowwss = 5;
@@ -77,7 +99,17 @@ $(document).ready(function () { // Якщо документ загрузивс�
 
         var rez;
         var results = document.getElementById('results3');
-        var field = document.getElementById('field');
+        var field;
+        if (klit == 1) {
+            field = document.getElementById('field');
+        }
+        if (klit == 2) {
+            field = document.getElementById('field2');
+        }
+        if (klit == 3) {
+            field = document.getElementById('field3');
+        }
+
 
         var gen_row = "";
         var gen_cols = "";
@@ -104,7 +136,16 @@ $(document).ready(function () { // Якщо документ загрузивс�
         function draw_table() {
 
 
-            field.innerHTML = "";
+            if (klit == 1) {
+                field.innerHTML = "";
+            }
+            if (klit == 2) {
+                field.innerHTML = "";
+            }
+            if (klit == 3) {
+                field.innerHTML = "";
+            }
+
             for (var i = 0; i < rowwss; i++) {
                 gen_row = document.createElement('tr');
                 gen_row.className = "getn-tr";
@@ -139,7 +180,17 @@ $(document).ready(function () { // Якщо документ загрузивс�
             results.innerHTML = "Кількість плиточок: " + k;
 
         }
-        $("#field").show(100);
+        if (klit == 1) {
+            $("#field").show(100);
+        }
+        if (klit == 2) {
+            $("#field2").show(100);
+        }
+        if (klit == 3) {
+            $("#field3").show(100);
+        }
+
+
         $('#hint').hide(100);
         $('#setValue').hide(100);
         $("#getPrice").show(100);
@@ -147,6 +198,7 @@ $(document).ready(function () { // Якщо документ загрузивс�
         document.getElementById("var_b1").disabled = true;
         document.getElementById("var_x1").disabled = true;
         document.getElementById("var_y1").disabled = true;
+        document.getElementById("PlSize").disabled = true;
 
 
 

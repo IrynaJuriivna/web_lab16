@@ -25,54 +25,83 @@
     </header>
 
     <div class="container main_cont  text-center">
-        <em> <p id="hint">Спочатку виберіть потрібні дані:</p></em>
-        <p>Ціна плиточки за квадратний сантиметр: 25 копійок.</p>
+        <em>
+            <p id="hint">Спочатку виберіть потрібні дані:</p>
+        </em>
+        
         <div class="row">
 
-            <div class="col-md-6">
-                <p>Розмір плитки (від 30 до 120 см):</p>
-                
-                <p>
-                    <input id="var_x1" type="number"  onkeypress="return event.charCode >= 48" min="30" max="120" value="50" >
-                    
-*
-                    <input type="number" id="var_y1" onkeypress="return event.charCode >= 48" min="30" max="120"  value="50">
-                    
-                </p>
-              
+            <div class="col-md-4">
+                <p><b>Розмір плитки:</b></p>
+                <div class="select-wrapper">
+                    <div class="select-arrow-3"></div>
+                    <select id="PlSize">
+                        <option value="1">50cм * 50см</option>
+                        <option value="2">50см * 80см</option>
+                        <option value="3">80см * 50см</option>
+                    </select>
+                </div>
+
+               
 
 
 
 
-            </div>
-            <div class="col-md-6 zavd2">
-                
-                <p>Розмір поля (від 1 до 10 клітинок):</p>
-                <p>
-                    <input type="number"  onkeypress="return event.charCode >= 48" min="1" max="10"  value="7" id="var_a1">
-                    
-*
-                    <input type="number"  onkeypress="return event.charCode >= 48" min="1" max="10"  value="7" id="var_b1">
-                    
-                </p>
 
             </div>
-            
+            <div class="col-md-4 zavd2">
+
+                <p><b>Розмір поля (від 1 до 10 клітинок):</b></p>
+                <p>
+                    <input type="number" onkeypress="return event.charCode >= 48" min="1" max="10" value="7"
+                        id="var_a1">
+
+                    *
+                    <input type="number" onkeypress="return event.charCode >= 48" min="1" max="10" value="7"
+                        id="var_b1">
+
+                </p>
+
+            </div>
+
+            <div class="col-md-4">
+                <p><b>Ціна за плитку:</b></p>
+
+                <p>
+                    <input id="var_x1" type="number" onkeypress="return event.charCode >= 48" min="1" 
+                        value="50">
+грн
+                    
+
+                </p>
+            </div>
+
+
+
+
         </div>
         <button id="setValue"><b>Готово</b></button>
 
 
         <table id="field" border="0">
         </table>
-        <div id = "results3"></div>
-        
 
-          <button id="getPrice"><b>Розрахувати вартість мозаїки</b></button>
+        <table id="field2" border="0">
+        </table>
 
-<div id = "results"><b></b>
-          </div>
+        <table id="field3" border="0">
+        </table>
 
-          <button id="new">Створити нову мозаїку</button>
+
+        <div id="results3"></div>
+
+
+        <button id="getPrice"><b>Розрахувати вартість мозаїки</b></button>
+
+        <div id="results">
+        </div>
+
+        <button id="new">Створити нову мозаїку</button>
 
     </div>
 
