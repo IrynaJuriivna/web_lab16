@@ -49,14 +49,15 @@ $(document).ready(function () { // Якщо документ загрузивс�
         document.getElementById("PlSize").disabled = false;
 
         var results2 = document.getElementById('results3');
-        results2.innerHTML = "";
-
+        results2.innerHTML = " ";
+        document.getElementById('results3').disabled = true;
 
 
     });
 
     $("#setValue").click(function () {
 
+        document.getElementById('results3').disabled = false;
         if ($('#PlSize').val() == 1) {
             klit = 1;
         }
